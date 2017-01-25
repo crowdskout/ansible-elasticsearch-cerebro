@@ -1,0 +1,9 @@
+[Unit]
+Description=Cerebro Monitoring Tool
+Restart=always
+
+[Service]
+ExecStart=/opt/cerebro-{{elastic_cerebro_version}}/bin/cerebro -Dhttp.port={{elastic_cerebro_port}} -Dhttp.address={{elastic_cerebro_listen_host}}
+
+[Install]
+WantedBy=multi-user.target
