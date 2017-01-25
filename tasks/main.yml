@@ -40,5 +40,5 @@
 
 - name: Ensure service is started
   service:
-    state: enabled
+    state: started
     name: cerebro
