@@ -2,6 +2,12 @@
 # tasks file for elasticsearch-cerebro
 
 
+
+- name: Make sure tgz is absent
+  file:
+    path: /opt/cerebro-{{elastic_cerebro_version}}.tgz
+    state: absent
+
 - name: Download lmenez/cerebro
   uri:
     url: https://github.com/lmenezes/cerebro/releases/download/v{{elastic_cerebro_version}}/cerebro-{{elastic_cerebro_version}}.tgz
