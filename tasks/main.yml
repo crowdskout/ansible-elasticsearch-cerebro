@@ -2,11 +2,11 @@
 # tasks file for elasticsearch-cerebro
 
 
-#- name: Download lmenez/cerebro
-#  uri:
-#    url: https://github.com/lmenezes/cerebro/releases/download/v{{elastic_cerebro_version}}/cerebro-{{elastic_cerebro_version}}.tgz
-#    dest: /opt/cerebro-{{elastic_cerebro_version}}.tgz
-#    mode: 0740
+- name: Download lmenez/cerebro
+  uri:
+    url: https://github.com/lmenezes/cerebro/releases/download/v{{elastic_cerebro_version}}/cerebro-{{elastic_cerebro_version}}.tgz
+    dest: /opt/cerebro-{{elastic_cerebro_version}}.tgz
+    mode: 0740
 
 - name: Create program folder
   file:
