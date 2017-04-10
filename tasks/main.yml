@@ -33,6 +33,7 @@
   template:
     src: application.j2
     dest: /opt/cerebro-{{elastic_cerebro_version}}/conf/application.conf
+  tags: "elasticsearch-cerebro:config"
   notify:
     - restart elastic-cerebro
 

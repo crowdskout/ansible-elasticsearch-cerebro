@@ -1,18 +1,19 @@
-# This is the main configuration file for the application.
-# ~~~~~
+# Secret will be used to sign session cookies, CSRF tokens and for other encryption utilities.
+# It is highly recommended to change this value before running cerebro in production.
+secret = "{{elasticsearch_cerebro_secret}}"
 
-# Secret key
-# ~~~~~
-# The secret key is used to secure cryptographics functions.
-# If you deploy your application to several instances be sure to use the same key!
-application.secret="ki:s:[[@=Ag?QI`W2jMwkY:eqvrJ]JqoJyi2axj3ZvOv^/KavOT4ViJSv?6YY4[N"
+# Application base path
+basePath = "/"
 
-# The application languages
-# ~~~~~
-application.langs="en"
+# Defaults to RUNNING_PID at the root directory of the app.
+# To avoid creating a PID file set this value to /dev/null
+pidfile.path = "/var/run/cerebro.pid"
 
-play.modules.enabled += "controllers.auth.Module"
-play.modules.enabled += "elastic.ElasticModule"
+# Rest request history max size per user
+rest.history.size = 50 // defaults to 50 if not specified
+
+# Path of local database file
+data.path = "./cerebro.db"
 
 hosts = [
   #{
@@ -22,12 +23,13 @@ hosts = [
   #    password = "secret-password"
   #  }
   #},
+{% for hostitem in elasticsearch_cerebro_hosts %}
   {
-    host = "http://localhost:9201"
+    host = "{{hostitem.host}}",
+    name = "{{hostitem.name}}",
+
   },
-  {
-    host = "http://localhost:9200"
-  }
+{% endfor %}
 
 ]
 
