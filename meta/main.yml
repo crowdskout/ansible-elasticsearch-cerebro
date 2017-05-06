@@ -1,17 +1,18 @@
+---
 galaxy_info:
   author: Michael Galey
-  description: Installs cerebro monitoring tool for elasticsearch, based off of kopf plugin
+  description: >
+    Installs cerebro monitoring tool for elasticsearch (formerly kopf plugin)
   company: Crowdskout
-
 
   license: BSD
 
   min_ansible_version: 2.2
 
   platforms:
-  - name: EL
-    versions:
-      - 7
+    - name: EL
+      versions:
+        - 7
 
   galaxy_tags:
     - elasticsearch
