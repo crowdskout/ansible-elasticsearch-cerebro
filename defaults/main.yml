@@ -1,13 +1,15 @@
 ---
 # defaults file for elasticsearch-cerebro
 
-elastic_cerebro_version: 0.6.4
-elastic_cerebro_port: 9002
 elastic_cerebro_listen_host: 0.0.0.0
-
-
-elasticsearch_monitoring_enabled: False
+elastic_cerebro_port: 9000
+elastic_cerebro_version: 0.6.5
 
 elasticsearch_cerebro_hosts:
   - host: http://localhost:9200
     name: localhost
+# CSRF token for cookies, generate your own for prod deploys
+elasticsearch_cerebro_secret: >-
+  ki:s:[[@=Ag?QI`W2jMwkY:eqvrJ]JqoJyi2axj3ZvOv^/KavOT4ViJSv?6YY4[N
+
+elasticsearch_monitoring_enabled: False
