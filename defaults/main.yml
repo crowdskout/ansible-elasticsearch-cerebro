@@ -1,7 +1,7 @@
 ---
 # defaults file for elasticsearch-cerebro
 
-elastic_cerebro_version: 0.6.6
+elastic_cerebro_version: 0.7.1
 elastic_cerebro_port: 9002
 elastic_cerebro_listen_host: 0.0.0.0
 
