@@ -9,5 +9,8 @@ elastic_cerebro_listen_host: 0.0.0.0
 elasticsearch_monitoring_enabled: False
 
 elasticsearch_cerebro_hosts:
-  - host: http://localhost:9200
+  - host: http://localhost:9201
     name: localhost
+
+
+kafka_indexer_threads: 0
