@@ -29,6 +29,15 @@
   notify:
     - restart elastic-cerebro
 
+- name: Replace java version check to support version 11
+  lineinfile:
+    path: "/opt/cerebro-{{elastic_cerebro_version}}/bin/cerebro"
+    regexp: '^  readonly java_version'
+    line: 'return'
+  notify:
+    - restart elastic-cerebro
+  tags: "elastic:cerebro:ver"
+
 - name: Template out the configuration
   template:
     src: application.j2
