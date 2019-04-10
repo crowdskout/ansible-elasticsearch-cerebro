@@ -1,16 +1,17 @@
 ---
 # defaults file for elasticsearch-cerebro
 #https://github.com/lmenezes/cerebro/releases
-elastic_cerebro_version: 0.8.1
+elastic_cerebro_version: 0.8.2
 elastic_cerebro_port: 9002
 elastic_cerebro_listen_host: 0.0.0.0
 
 
 elasticsearch_monitoring_enabled: False
 
-elasticsearch_cerebro_hosts:
+elastic_cerebro_hosts:
   - host: http://localhost:9201
     name: localhost
 
 
-kafka_indexer_threads: 0
+
+elastic_cerebro_install_method: system

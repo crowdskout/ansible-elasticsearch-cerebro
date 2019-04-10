@@ -1,0 +1,26 @@
+
+- name: Template out the configuration
+  template:
+    src: application.j2
+    dest: /tmp/cerebro-{{elastic_cerebro_version}}_application.conf
+  tags: "elasticsearch-cerebro:config"
+  notify:
+    - restart elastic-cerebro
+    -
+- name: "start elasticsearch cerebro"
+  docker_container:
+    name: "elasticsearch-cerebro"
+    pull: yes
+    image: "lmenezes/cerebro:{{elastic_cerebro_version}}"
+    state: started
+    recreate: yes
+    hostname: "{{elastic_cerebro_hostname}}"
+    memory: "512MB"
+    restart_policy: "unless-stopped"
+    log_driver: "syslog"
+    log_options:
+      syslog-address: "tcp://{{papertrail_host}}:{{papertrail_port}}"
+      tag: "{% raw %}{{.Name}}{% endraw %}"
+    volumes:
+      - /tmp:/tmp
+      - "/tmp/cerebro-{{elastic_cerebro_version}}_application.conf:/opt/application.conf":
